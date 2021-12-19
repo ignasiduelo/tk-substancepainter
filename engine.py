@@ -139,7 +139,7 @@ def refresh_engine(scene_name, prev_context):
         # and construct the new context for this path:
         tk = tank.tank_from_path(new_path)
         ctx = tk.context_from_path(new_path, prev_context)
-    except tank.TankError, e:
+    except tank.TankError as e:
         try:
             # could not detect context from path, will use the project context
             # for menus if it exists
@@ -154,7 +154,7 @@ def refresh_engine(scene_name, prev_context):
             )
             engine.show_warning(message)
 
-        except tank.TankError, e:
+        except tank.TankError as e:
             (exc_type, exc_value, exc_traceback) = sys.exc_info()
             message = ""
             message += "Shotgun Substance Painter Engine cannot be started:.\n"
